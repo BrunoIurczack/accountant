@@ -1,6 +1,6 @@
 FROM ruby:3.2.1-alpine
 
-RUN apk --update add build-base nodejs git zsh tzdata postgresql-dev postgresql-client libxslt-dev libxml2-dev imagemagick openssh-client
+RUN apk --update add build-base nodejs git zsh tzdata libpq-dev libxslt-dev libxml2-dev imagemagick openssh-client
 
 RUN mkdir /app
 WORKDIR /app
