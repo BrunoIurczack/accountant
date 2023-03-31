@@ -22,4 +22,6 @@ p
   
 = link_to 'Edit', edit_customer_path(@customer)
 |  | 
-= link_to 'Back', customer_path
+= link_to 'Back', customers_path
+|  | 
+= link_to t('links.delete'), customer_path, method: :delete, data: {confirm: t('Links.are_you_sure')}
