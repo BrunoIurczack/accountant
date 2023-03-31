@@ -17,9 +17,20 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
   end
 
-  def update; end
+  def update
 
-  def destroy; end
+      if @customer.update(customer_params)
+        redirect_to customer_url(@customer), notice: "Customer was successfully updated." 
+      else
+        render :edit, status: :unprocessable_entity 
+      end
+
+  end
+
+  def destroy
+    @customer.destroy
+    redirect_to customers_path
+  end
 
   private
     def set_customer
