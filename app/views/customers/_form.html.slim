@@ -1,0 +1,28 @@
+= form_with(model: customer, local: true) do |form|
+  - if customer.errors.any?
+    #error_explanation
+      h2
+        = pluralize(customer.errors.count, "error")
+        |  prohibited this coin from being saved:
+      ul
+        - customer.errors.full_messages.each do |message|
+          li
+            = message
+  .field
+    = form.label :name
+    = form.text_field :name
+  .field
+    = form.label :plan
+    = form.text_field :plan
+  .field
+    = form.label :value
+    = form.text_field :value
+  .field 
+    = form.label :contact
+    = form.text_field :contact
+  .field 
+    = form.label :tasks
+    = form.text_field :tasks
+  
+  .actions
+    = form.submit
