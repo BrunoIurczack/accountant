@@ -15,16 +15,20 @@ class CustomersController < ApplicationController
     
   def create
     @customer = Customer.new(customer_params)
+
+    if @customer.save
+      redirect_to customer_url(@customer), notice: "Customer was successfully created." 
+    else
+      render :new, status: :unprocessable_entity 
+    end
   end
 
   def update
-
-      if @customer.update(customer_params)
-        redirect_to customer_url(@customer), notice: "Customer was successfully updated." 
-      else
-        render :edit, status: :unprocessable_entity 
-      end
-
+    if @customer.update(customer_params)
+      redirect_to customer_url(@customer), notice: "Customer was successfully updated." 
+    else
+      render :edit, status: :unprocessable_entity 
+    end
   end
 
   def destroy
