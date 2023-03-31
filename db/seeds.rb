@@ -5,3 +5,13 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+5.times do |i|
+    Customers.create!(
+        name: "MATHEUS VISONT SOLUCOES DIGITAIS LTDA ### - #{i}",
+        plan: "Simples Nacional",
+        value: 150,
+        contact: "(41) 9878-0737",
+        taskes: "Empresa de tecnologia optante pelo Simples Naciona."
+    )
+end
