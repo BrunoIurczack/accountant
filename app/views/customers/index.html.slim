@@ -2,29 +2,109 @@ p#notice
   = notice
 h1
   | Accountant/Client
-h2
-  = cookies[:curso]
-h2
-  = session[:curso]
-table
-  tbody
-    - @customers.each do |customer|
-      tr
-        td
-          = customer.name
-        td
-          = customer.plan
-        td
-          = customer.value
-        td 
-          = customer.contact
-        td 
-          = customer.tasks
-        td
-          = link_to t('links.show'), customer_path(customer), class: "btn btn-sm fw-bold btn-primary"
-        td
-          = link_to t('links.edit'), edit_customer_path(customer), class: "btn btn-sm fw-bold btn-success"
-        td
-          = link_to t('links.delete'), customer, method: :delete, data: {confirm: t('Links.are_you_sure')}, class: "btn btn-sm fw-bold btn-danger"
-br
-= link_to 'New client', new_customer_path
+.card
+  .card-header.border-0.pt-6
+    .card-title
+      .d-flex.align-items-center.position-relative.my-1
+        i.ki-duotone.ki-magnifier.fs-3.position-absolute.ms-5
+          span.path1
+          span.path2
+        input.form-control.form-control-solid.w-250px.ps-12[type="text" data-kt-customer-table-filter="search" placeholder="Search Customers"]
+    .card-toolbar
+      .d-flex.justify-content-end[data-kt-customer-table-toolbar="base"]
+        button.btn.btn-light-primary.me-3[type="button" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end"]
+          i.ki-duotone.ki-filter.fs-2
+            span.path1
+            span.path2
+          |  Filter 
+        #kt-toolbar-filter.menu.menu-sub.menu-sub-dropdown.w-300px.w-md-325px[data-kt-menu="true"]
+          .px-7.py-5
+            .fs-4.text-dark.fw-bold
+              | Filter Options
+          .separator.border-gray-200
+          .px-7.py-5
+            .mb-10
+              label.form-label.fs-5.fw-semibold.mb-3
+                | Month:
+              select.form-select.form-select-solid.fw-bold.select2-hidden-accessible[data-kt-select2="true" data-placeholder="Select option" data-allow-clear="true" data-kt-customer-table-filter="month" data-dropdown-parent="#kt-toolbar-filter" data-select2-id="select2-data-10-eces" tabindex="-1" aria-hidden="true" data-kt-initialized="1"]
+                option[data-select2-id="select2-data-12-lvgp"]
+                option[value="aug"]
+                  | August
+                option[value="sep"]
+                  | September
+                option[value="oct"]
+                  | October
+                option[value="nov"]
+                  | November
+                option[value="dec"]
+                  | December
+              span.select2.select2-container.select2-container--bootstrap5[dir="ltr" data-select2-id="select2-data-11-hu27" style="width: 100%;"]
+                span.selection
+                  span.select2-selection.select2-selection--single.form-select.form-select-solid.fw-bold[role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-jc37-container" aria-controls="select2-jc37-container"]
+                    span#select2-jc37-container.select2-selection__rendered[role="textbox" aria-readonly="true" title="Select option"]
+                      span.select2-selection__placeholder
+                        | Select option
+                    span.select2-selection__arrow[role="presentation"]
+                      b[role="presentation"]
+                span.dropdown-wrapper[aria-hidden="true"]
+            .mb-10
+              label.form-label.fs-5.fw-semibold.mb-3
+                | Payment Type:
+              .d-flex.flex-column.flex-wrap.fw-semibold[data-kt-customer-table-filter="payment_type"]
+                label.form-check.form-check-sm.form-check-custom.form-check-solid.mb-3.me-5
+                  input.form-check-input[type="radio" name="payment_type" value="all" checked="checked"]
+                  span.form-check-label.text-gray-600
+                    |  All 
+                label.form-check.form-check-sm.form-check-custom.form-check-solid.mb-3.me-5
+                  input.form-check-input[type="radio" name="payment_type" value="visa"]
+                  span.form-check-label.text-gray-600
+                    |  Visa 
+                label.form-check.form-check-sm.form-check-custom.form-check-solid.mb-3
+                  input.form-check-input[type="radio" name="payment_type" value="mastercard"]
+                  span.form-check-label.text-gray-600
+                    |  Mastercard 
+                label.form-check.form-check-sm.form-check-custom.form-check-solid
+                  input.form-check-input[type="radio" name="payment_type" value="american_express"]
+                  span.form-check-label.text-gray-600
+                    |  American Express 
+            .d-flex.justify-content-end
+              button.btn.btn-light.btn-active-light-primary.me-2[type="reset" data-kt-menu-dismiss="true" data-kt-customer-table-filter="reset"]
+                | Reset
+              button.btn.btn-primary[type="submit" data-kt-menu-dismiss="true" data-kt-customer-table-filter="filter"]
+                | Apply
+        button.btn.btn-light-primary.me-3[type="button" data-bs-toggle="modal" data-bs-target="#kt_customers_export_modal"]
+          i.ki-duotone.ki-exit-up.fs-2
+            span.path1
+            span.path2
+          |  Export 
+        button.btn.btn-primary[type="button" data-bs-toggle="modal" data-bs-target="#kt_modal_add_customer"]
+          |  Add Customer 
+      .d-flex.justify-content-end.align-items-center.d-none[data-kt-customer-table-toolbar="selected"]
+        .fw-bold.me-5
+          span.me-2[data-kt-customer-table-select="selected_count"]
+          |  Selected 
+        button.btn.btn-danger[type="button" data-kt-customer-table-select="delete_selected"]
+          |  Delete Selected 
+  .card-body.pt-0
+    table.table.align-middle.table-row-dashed.fs-6.gy-5.dataTable.no-footer
+      tbody
+        - @customers.each do |customer|
+          tr
+            td
+              = customer.name
+            td
+              = customer.plan
+            td
+              = customer.value
+            td 
+              = customer.contact
+            td 
+              = customer.tasks
+            td
+              = link_to t('links.show'), customer_path(customer), class: "btn btn-sm fw-bold btn-secondary"
+            td
+              = link_to t('links.edit'), edit_customer_path(customer), class: "btn btn-sm fw-bold btn-success"
+            td
+              = link_to t('links.delete'), customer, method: :delete, data: {confirm: t('Links.are_you_sure')}, class: "btn btn-sm fw-bold btn-danger"
+    br
+    = link_to 'New client', new_customer_path, class: "btn btn-sm fw-bold btn-primary"
