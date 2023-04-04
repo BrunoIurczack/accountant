@@ -1,0 +1,13 @@
+- flash.each do |type, message|
+  div(class="alert d-flex align-items-center p-5 mb-10 alert-#{type.eql?('alert') ? 'danger' : 'success' }")
+    .d-flex.flex-column
+      span= message
+      /- if defined?(resource)
+        ul
+          - resource.errors.messages.each do |m|
+            li=m
+    button.position-absolute.position-sm-relative.m-2.m-sm-0.top-0.end-0.btn.btn-icon.ms-sm-auto data-bs-dismiss="alert" type="button"
+      span(class="svg-icon svg-icon-2x svg-icon-#{type.eql?('alert') ? 'danger' : 'success' }")
+        svg fill="none" height="24" viewbox=("0 0 24 24") width="24" xmlns="http://www.w3.org/2000/svg"
+           rect fill="currentColor" height="2" opacity="0.5" rx="1" transform=("rotate(-45 6 17.3137)") width="16" x="6" y="17.3137"
+           rect fill="currentColor" height="2" rx="1" transform=("rotate(45 7.41422 6)") width="16" x="7.41422" y="6"
