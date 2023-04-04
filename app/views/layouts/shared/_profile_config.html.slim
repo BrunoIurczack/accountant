@@ -1,0 +1,42 @@
+#kt_header_user_menu_toggle.d-flex.align-items-center.ms-1.ms-lg-3
+  .cursor-pointer.symbol.symbol-30px.symbol-md-40px.border data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" data-kt-menu-trigger="click"
+   /- if user_signed_in?
+      = image_tag current_avatar
+  .menu.menu-sub.menu-sub-dropdown.menu-column.menu-rounded.menu-gray-800.menu-state-bg.menu-state-primary.fw-bold.py-4.fs-6.w-275px data-kt-menu="true"
+    .menu-item.px-3
+      .menu-content.d-flex.align-items-center.px-3
+        .symbol.symbol-50px.me-5.border
+          /- if user_signed_in?
+            = image_tag current_avatar
+        /- if user_signed_in?
+          .d-flex.flex-column
+            .fw-bolder.align-items-left.fs-5
+              span.d-block= current_user.to_s
+              span.badge.badge-light-success.fw-bolder.fs-8.px-2.py-1= t("view_component.user_types.#{current_user.user_type}")
+    .separator.my-2
+    /.menu-item.px-5
+      = link_to t("view_component.profile"), edit_admin_user_profile_path, class: 'menu-link px-5'
+    .separator.my-2
+    /.menu-item.px-5 data-kt-menu-placement="left-start" data-kt-menu-trigger="hover"
+      = link_to admin_root_path, class: 'menu-link px-5'
+        span.menu-title.position-relative
+          = t('view_component.language')
+          span.fs-8.rounded.bg-light.px-3.py-2.position-absolute.translate-middle-y.top-50.end-0
+            = t("view_component.available_languages.#{I18n.locale}")
+            = image_tag "flags/#{I18n.locale}.svg", class: 'w-15 h-15px rounded-1 ms-2'
+      .menu-sub.menu-sub-dropdown.w-175px.py-4
+        /- I18n.available_locales.sort.each do |local|
+          .menu-item.px-3
+            = link_to url_for(only_path: false, lang: local), class: 'menu-link d-flex px-5'
+              span.symbol.symbol-20px.me-4
+                = image_tag "flags/#{local}.svg", class: 'rounded-1'
+              = t("view_component.available_languages.#{local}")
+    .menu-item.px-5
+      /= link_to t("view_component.logout"), destroy_user_session_path, class: 'menu-link px-5', method: :delete
+    / .separator.my-2
+    / .menu-item.px-5
+      .menu-content.px-5
+        label.form-check.form-switch.form-check-custom.form-check-solid.pulse.pulse-success for="kt_user_menu_dark_mode_toggle"
+          input#kt_user_menu_dark_mode_toggle.form-check-input.w-30px.h-20px data-kt-url="../../demo1/dist/index.html" name="mode" type="checkbox" value="1" /
+          span.pulse-ring.ms-n1
+          span.form-check-label.text-gray-600.fs-7 Modo Escuro

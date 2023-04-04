@@ -1,6 +1,6 @@
 #kt_app_sidebar.app-sidebar.flex-column data-kt-drawer="true" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-direction="start" data-kt-drawer-name="app-sidebar" data-kt-drawer-overlay="true" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle" data-kt-drawer-width="225px"
   #kt_app_sidebar_logo.app-sidebar-logo.px-6
-    = link_to admin_root_path do
+    /= link_to admin_root_path do
       /= image_tag 'logo_dorel_juvenile_white.png', class: 'h-25px app-sidebar-logo-default'
       /= image_tag 'logo_dorel_juvenile_square.png', class: 'h-20px app-sidebar-logo-minimize'
     #kt_app_sidebar_toggle.app-sidebar-toggle.btn.btn-icon.btn-shadow.btn-sm.btn-color-muted.btn-active-color-primary.body-bg.h-30px.w-30px.position-absolute.top-50.start-100.translate-middle.rotate data-kt-toggle="true" data-kt-toggle-name="app-sidebar-minimize" data-kt-toggle-state="active" data-kt-toggle-target="body"
