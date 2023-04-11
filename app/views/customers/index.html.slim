@@ -105,6 +105,6 @@ h1
             td
               = link_to t('links.edit'), edit_customer_path(customer), class: "btn btn-sm fw-bold btn-success"
             td
-              = link_to t('links.delete'), customer, method: :delete, data: {confirm: t('Links.are_you_sure')}, class: "btn btn-sm fw-bold btn-danger"
+              = link_to t('links.delete'), customer_path(customer), method: :delete, data: {confirm: "tem certeza?"}, class: "btn btn-sm fw-bold btn-danger"
     br
     = link_to 'New client', new_customer_path, class: "btn btn-sm fw-bold btn-primary"
