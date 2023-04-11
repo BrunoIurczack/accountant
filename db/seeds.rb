@@ -7,7 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 5.times do |i|
-    Customer.create!(
+    Customer.find_or_create_by!(
         name: "MATHEUS VISONT SOLUCOES DIGITAIS LTDA ### - #{i}",
         plan: "Simples Nacional",
         value: 150,
