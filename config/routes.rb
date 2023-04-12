@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :customers
   root to: 'customers#index'
+  resources :payments
+  
  
 end
