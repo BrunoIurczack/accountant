@@ -27,10 +27,10 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_12_130415) do
   create_table "payments", force: :cascade do |t|
     t.date "month"
     t.boolean "paid"
-    t.bigint "customers_id"
+    t.bigint "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["customers_id"], name: "index_payments_on_customers_id"
+    t.index ["customer_id"], name: "index_payments_on_customer_id"
   end
 
 end

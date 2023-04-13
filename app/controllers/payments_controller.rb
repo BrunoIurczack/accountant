@@ -2,7 +2,7 @@ class PaymentsController < ApplicationController
   before_action :set_payment, only: %i[ show edit update destroy]
 
   def index
-    @payment = Payment.all
+    @payments = Payment.all
   end
 
   def show; end
