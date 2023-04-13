@@ -15,3 +15,10 @@
         tasks: "Empresa de tecnologia optante pelo Simples Naciona."
     )
 end
+
+5.times do |i|
+    Payment.find_or_create_by!(
+        month: Date.today
+        paid: true
+    )
+end

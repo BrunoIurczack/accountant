@@ -3,17 +3,16 @@ p#notice
 h1 
   | Payement
 
-/table.table.align-middle.table-row-dashed.fs-6.gy-5.dataTable.no-footer
-  tbody
-    - @payments.each do |payement|
-      tr 
-        td
-          = payment.month 
-        td 
-          = payment.name 
-        td 
-          = payment.value 
-        td 
-          = payment.paid 
-            
-  
+    .card-body.pt-0
+        table.table.align-middle.table-row-dashed.fs-6.gy-5.dataTable.no-footer
+        tbody
+            - @payments.each do |payement|
+            tr 
+                td
+                = payment.month 
+                td 
+                = payment.name 
+                td 
+                = payment.value 
+                td 
+                = payment.paid 
