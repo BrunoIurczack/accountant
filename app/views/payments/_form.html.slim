@@ -1,0 +1,32 @@
+= form_with(model: payment, local: true) do ||form|
+  - if payment.errors.any?
+    #error_explanation
+    h2 
+      = pluralize(payment.errors.count, "error")
+      |  prohibited this coin from being saved:
+    ul 
+      - payment.errors.full_messeges.each do |message|
+        li 
+          = message
+  p 
+    strong 
+    .field 
+      = form.label :month
+      = form.text_field :month
+  p 
+    strong 
+    .field 
+      = form.label :name
+      = form.text_field :name
+  p 
+    strong 
+    .field 
+      = form.label :name
+      = form.text_field :name
+  p 
+    strong 
+    .field 
+      = form.label :paid
+      = form.text_field :paid
+  .actions
+    = form.submit class: "btn btn-sm fw-bold btn-success me-2 mb-2"
