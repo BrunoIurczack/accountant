@@ -31,6 +31,11 @@ class PaymentsController < ApplicationController
     end
   end
 
+  def destroy
+    @payment.destroy
+    redirect_to payments_path
+  end
+
   private
     def set_payment
       @payment = Payment.find(params[:id])
