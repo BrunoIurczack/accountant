@@ -35,7 +35,8 @@ class PaymentsController < ApplicationController
     def set_payment
       @payment = Payment.find(params[:id])
     end
+
     def payment_params
-      params.require(:payment).permit(:month, :name, :value, :paid)
+      params.require(:payment).permit(:month, :name, :value, :paid, :customer_id)
     end
 end
