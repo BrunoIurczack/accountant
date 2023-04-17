@@ -1,4 +1,4 @@
-= form_with(model: payment, local: true) do ||form|
+= form_with(model: payment, local: true) do |form|
   - if payment.errors.any?
     #error_explanation
     h2 
@@ -16,17 +16,12 @@
   p 
     strong 
     .field 
-      = form.label :name
-      = form.text_field :name
-  p 
-    strong 
-    .field 
-      = form.label :name
-      = form.text_field :name
+      = form.label :cliet
+      = form.collection_select :customer_id, Customer.all, :id, :name
   p 
     strong 
     .field 
       = form.label :paid
-      = form.text_field :paid
+      = form.check_box :paid
   .actions
     = form.submit class: "btn btn-sm fw-bold btn-success me-2 mb-2"
