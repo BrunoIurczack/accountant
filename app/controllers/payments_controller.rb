@@ -1,8 +1,8 @@
 class PaymentsController < ApplicationController
-  before_action :set_payment, only: %i[ show edit update destroy]
+  before_action :set_payment, only: %i[ show edit update destroy change_status]
 
   def index
-    @payments = Payment.all
+    @payments = Payment.all.order('created_at desc')
   end
 
   def show; end
@@ -34,6 +34,11 @@ class PaymentsController < ApplicationController
   def destroy
     @payment.destroy
     redirect_to payments_path
+  end
+
+  def change_status
+    @payment.update_attribute(:paid, !@payment.paid)
+    redirect_to payments_path, notice: "Payment status was successfully updated." 
   end
 
   private
