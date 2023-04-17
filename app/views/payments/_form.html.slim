@@ -1,13 +1,13 @@
 = form_with(model: payment, local: true) do |form|
   - if payment.errors.any?
     #error_explanation
-    h2 
-      = pluralize(payment.errors.count, "error")
-      |  prohibited this coin from being saved:
-    ul 
-      - payment.errors.full_messeges.each do |message|
-        li 
-          = message
+      h2 
+        = pluralize(payment.errors.count, "error")
+        |  prohibited this from being saved:
+      ul 
+        - payment.errors.full_messages.each do |message|
+          li
+            = message
   p 
     strong 
     .field 
@@ -16,7 +16,7 @@
   p 
     strong 
     .field 
-      = form.label :cliet
+      = form.label :name
       = form.collection_select :customer_id, Customer.all, :id, :name
   p 
     strong 

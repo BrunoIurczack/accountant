@@ -17,25 +17,25 @@ class PaymentsController < ApplicationController
     @payment = Payment.new(payment_params)
     
     if @payment.save
-      redirect_to payment_url(@payment), notice: "Payment was successfully created." 
+      redirect_to payment_url(@payment), notice: "Payment was successfully created."
     else
       render :new, status: :unprocessable_entity 
     end
-
   end
 
   def update
-   
     if @payment.update(payment_params)
-        redirect_to payment_url(@payment), notice: "Payment was successfully updated." 
+      redirect_to payment_url(@payment), notice: "Payment was successfully updated." 
     else
-        render :edit, status: :unprocessable_entity 
+      render :edit, status: :unprocessable_entity 
     end
-     
   end
 
   private
     def set_payment
-        @payment = Payment.find(params[:id])
+      @payment = Payment.find(params[:id])
+    end
+    def payment_params
+      params.require(:payment).permit(:month, :name, :value, :paid)
     end
 end
