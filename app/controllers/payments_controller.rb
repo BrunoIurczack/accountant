@@ -35,13 +35,25 @@ class PaymentsController < ApplicationController
     @payment.destroy
     redirect_to payments_path
   end
+  
+  def change_status_from_customer
+    @customer = Customer.find(params[:customer_id])
+    @payment = @customer.payments.find(params[:id])
+    switch_paid_value(@payment)
+    redirect_to @customer, notice: "Payment status was successfully updated."
+  end
 
   def change_status
-    @payment.update_attribute(:paid, !@payment.paid)
+    
+    switch_paid_value(@payment)
     redirect_to payments_path, notice: "Payment status was successfully updated." 
   end
 
   private
+    def switch_paid_value(payment)
+      payment.update_attribute(:paid, !@payment.paid)
+    end
+
     def set_payment
       @payment = Payment.find(params[:id])
     end
