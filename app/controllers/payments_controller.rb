@@ -40,7 +40,7 @@ class PaymentsController < ApplicationController
     @customer = Customer.find(params[:customer_id])
     @payment = @customer.payments.find(params[:id])
     switch_paid_value(@payment)
-    redirect_to @customer, notice: "Payment status was successfully updated."
+    redirect_to @customer, notice: "Payment status was successfully updated." 
   end
 
   def change_status
