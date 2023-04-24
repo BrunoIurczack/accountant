@@ -44,7 +44,6 @@ class PaymentsController < ApplicationController
   end
 
   def change_status
-    
     switch_paid_value(@payment)
     redirect_to payments_path, notice: "Payment status was successfully updated." 
   end

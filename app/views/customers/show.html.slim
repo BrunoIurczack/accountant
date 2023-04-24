@@ -51,13 +51,4 @@ p#notice
               td 
                 = payment.value
               td 
-                - if payment.paid?
-                  = link_to t('Positivo'), change_status_from_customer_customer_payment_path(@customer, payment)
-                  <i class="ki-duotone ki-like">
-                    <i class="path1"></i>
-                    <i class="path2"></i></i>
-                - else 
-                  = link_to t("negativo"), change_status_from_customer_customer_payment_path(@customer, payment)
-                  <i class="ki-duotone ki-dislike">
-                    <i class="path1"></i>
-                    <i class="path2"></i></i>
+                = paid_status_switcher(payment)
