@@ -1,15 +1,30 @@
     #kt_app_sidebar_menu_wrapper.app-sidebar-wrapper.hover-scroll-overlay-y.my-5 data-kt-scroll="true" data-kt-scroll-activate="true" data-kt-scroll-dependencies="#kt_app_sidebar_logo, #kt_app_sidebar_footer" data-kt-scroll-height="auto" data-kt-scroll-offset="5px" data-kt-scroll-save-state="true" data-kt-scroll-wrappers="#kt_app_sidebar_menu"
       .menu.menu-column.menu-rounded.menu-sub-indention.px-3 data-kt-menu="true" data-kt-menu-expand="false" id="#kt_app_sidebar_menu"
-        div(class="menu-item #{ 'show here' if controller.controller_name.eql?('dashboard') }")
-          = nav_link_to root_path, class: 'menu-link'
+        .menu-item.here.menu-accordion[data-kt-menu-trigger="click"]
+          span.menu-link
             span.menu-icon
-              span.svg-icon.svg-icon-2
-                svg fill="none" height="24" viewbox=("0 0 24 24") width="24" xmlns="http://www.w3.org/2000/svg"
-                  rect fill="currentColor" height="9" rx="2" width="9" x="2" y="2" /
-                  rect fill="currentColor" height="9" opacity="0.3" rx="2" width="9" x="13" y="2" /
-                  rect fill="currentColor" height="9" opacity="0.3" rx="2" width="9" x="13" y="13" /
-                  rect fill="currentColor" height="9" opacity="0.3" rx="2" width="9" x="2" y="13" /
-            span.menu-title= t('navigation.dashboard.root')
+              i.ki-duotone.ki-element-11.fs-2
+                span.path1
+                span.path2
+                span.path3
+                span.path4
+            span.menu-title
+              | Dashboards
+            span.menu-arrow
+          .menu-sub.menu-sub-accordion[kt-hidden-height="248" style="display: none; overflow: hidden;"]
+            .menu-item
+              a.menu-link.active[href="/metronic8/demo1/../demo1/index.html"]
+                span.menu-bullet
+                  span.bullet.bullet-dot
+                span.menu-title
+                  = link_to "Customer", customers_path
+            .menu-item
+              a.menu-link[href="/metronic8/demo1/../demo1/dashboards/ecommerce.html"]
+                span.menu-bullet
+                  span.bullet.bullet-dot
+                span.menu-title
+                  = link_to "Payment", payments_path
+                   
         / div(class="menu-item menu-accordion #{ 'show' if controller.controller_name.eql?('ecommerce') }" data-kt-menu-trigger="click")
           span.menu-link
             span.menu-icon
