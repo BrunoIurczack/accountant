@@ -7,28 +7,30 @@
       ul
         - customer.errors.full_messages.each do |message|
           li
-            = message         
-  p 
-    strong
-    .field
-      = form.label :name
-      = form.text_field :name
-  p
-    .field
-      = form.label :plan
-      = form.text_field :plan
-  p
-    .field
-      = form.label :value
-      = form.text_field :value
-  p
-    .field 
-      = form.label :contact
-      = form.text_field :contact
-  p
-    .field 
-      = form.label :tasks
-      = form.text_field :tasks
-  
+            = message
+  .card
+    .card-title
+      .card-body.pt-0  
+        p 
+          strong
+          .field
+            = form.label :name
+            = form.text_field :name
+        p
+          .field
+            = form.label :plan
+            = form.text_field :plan
+        p
+          .field
+            = form.label :value
+            = form.text_field :value
+        p
+          .field 
+            = form.label :contact
+            = form.text_field :contact
+        p
+          .field 
+            = form.label :tasks
+            = form.text_field :tasks
   .actions
     = form.submit class: "btn btn-sm fw-bold btn-success me-2 mb-2"

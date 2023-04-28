@@ -8,20 +8,21 @@
         - payment.errors.full_messages.each do |message|
           li
             = message
-  p 
-    strong 
-    .field 
-      = form.label :month
-      = form.text_field :month
-  p 
-    strong 
-    .field 
-      = form.label :name
-      = form.collection_select :customer_id, Customer.all, :id, :name
-  p 
-    strong 
-    .field 
-      = form.label :paid
-      = form.check_box :paid
+  .card
+    .card-title
+      .card-body.pt-0 
+        p 
+          strong 
+          .field 
+            = form.label :month
+            = form.text_field :month
+        p 
+          .field 
+            = form.label :name
+            = form.collection_select :customer_id, Customer.all, :id, :name
+        p 
+          .field 
+            = form.label :paid
+            = form.check_box :paid
   .actions
     = form.submit class: "btn btn-sm fw-bold btn-success me-2 mb-2"
