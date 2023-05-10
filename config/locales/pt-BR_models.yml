@@ -16,5 +16,14 @@
         tasks: Tarefas
       payment:
         month: Mes
+        date: Data
+        value: Valor
+        contact: Contato
+        name_client: Nome do cliente
         paid: Pago
+        customer: Cliente
+        actions: Ações
+        payment: Pagamento
+        Accountant_Payments: Pagamento/Contabilidade
+        new_payment: Novo Pagamento
         customer: Cliente
