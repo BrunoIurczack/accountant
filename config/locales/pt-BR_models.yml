@@ -10,10 +10,16 @@
     attributes:
       customer:
         name: Nome
+        name_client: Nome do CLiente
         plan: Plano
         value: Valor
         contact: Contato
         tasks: Tarefas
+        actions: Ações
+        payment: Pagamento
+        Accountant_Payments: Pagamento/Contabilidade
+        new_payment: Novo Pagamento
+        customer: Cliente
       payment:
         month: Mes
         date: Data
