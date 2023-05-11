@@ -18,7 +18,7 @@
         actions: Ações
         payment: Pagamento
         Accountant_Payments: Pagamento/Contabilidade
-        new_payment: Novo Pagamento
+        new_client: Novo Cliente
         customer: Cliente
       payment:
         month: Mes
