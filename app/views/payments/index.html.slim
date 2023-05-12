@@ -10,15 +10,15 @@ h1
       table.table.align-middle.table-row-dashed.fs-6.gy-5.dataTable.no-footer
         thead.border-bottom.border-gray-200.fs-6.fw-bold.bg-lighten
           tr
-            th
+            th.min-w-25px
               = @payments.human_attribute_name(:date)
-            th
+            th.min-w-25px
               = @payments.human_attribute_name(:name_client)
-            th
+            th.min-w-25px
               = @payments.human_attribute_name(:value)
-            th
+            th.min-w-25px
               = @payments.human_attribute_name(:payment)
-            th
+            th.min-w-25px
               = @payments.human_attribute_name(:actions) 
         tbody
           - @payments.each do |payment|
