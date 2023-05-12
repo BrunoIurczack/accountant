@@ -8,21 +8,28 @@
         - payment.errors.full_messages.each do |message|
           li
             = message
+
+
   .card
-    .card-title
-      .card-body.pt-0 
-        p 
-          strong 
-          .field 
+    .card-body.p-lg-15
+      .mb-13
+        .row.mb-7
+          label.col-lg-4.fw-semibold.text-muted
             = form.label :month
-            = form.text_field :month
-        p 
-          .field 
+          .col-lg-8
+            span.fw-bold.fs-6.text-gray-800
+               = form.text_field :month
+        .row.mb-7
+          label.col-lg-4.fw-semibold.text-muted
             = form.label :name
-            = form.collection_select :customer_id, Customer.all, :id, :name
-        p 
-          .field 
+          .col-lg-8
+            span.fw-bold.fs-6.text-gray-800
+               = form.collection_select :customer_id, Customer.all, :id, :name
+        .row.mb-7
+          label.col-lg-4.fw-semibold.text-muted
             = form.label :paid
-            = form.check_box :paid
+          .col-lg-8
+            span.fw-bold.fs-6.text-gray-800
+              = paid_status_switcher(payment, 'index_payment')
   .actions
     = form.submit class: "btn btn-sm fw-bold btn-success me-2 mb-2"
