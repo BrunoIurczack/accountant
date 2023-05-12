@@ -17,7 +17,7 @@
         tasks: Tarefas
         actions: Ações
         payment: Pagamento
-        Accountant_Payments: Pagamento/Contabilidade
+        Accountant_clients: Clientes/Contabilidade
         new_client: Novo Cliente
         customer: Cliente
       payment:
