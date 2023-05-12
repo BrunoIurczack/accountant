@@ -10,7 +10,7 @@
     attributes:
       customer:
         name: Nome
-        name_client: Nome do CLiente
+        name_client: Nome do Cliente
         plan: Plano
         value: Valor
         contact: Contato
