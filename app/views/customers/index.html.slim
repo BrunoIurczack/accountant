@@ -77,8 +77,8 @@ h1
             span.path1
             span.path2
           |  Export 
-        button.btn.btn-primary[type="button" data-bs-toggle="modal" data-bs-target="#kt_modal_add_customer"]
-          |  Add Customer 
+        = link_to @customers.human_attribute_name(:payment), payments_path, class: "btn btn-light-primary me-3"    
+        = link_to @customers.human_attribute_name(:new_client), new_customer_path, class: "btn btn-primary me-2" 
       .d-flex.justify-content-end.align-items-center.d-none[data-kt-customer-table-toolbar="selected"]
         .fw-bold.me-5
           span.me-2[data-kt-customer-table-select="selected_count"]
@@ -115,6 +115,3 @@ h1
               = link_to t('links.show'), customer_path(customer), class: "btn btn-sm fw-bold btn-secondary me-2 mb-2"
               = link_to t('links.edit'), edit_customer_path(customer), class: "btn btn-sm fw-bold btn-success me-2 mb-2"
               = link_to t('links.delete'), customer_path(customer), method: :delete, data: {confirm: "tem certeza?"}, class: "btn btn-sm fw-bold btn-danger me-2 mb-2"
-    br
-    = link_to @customers.human_attribute_name(:new_client), new_customer_path, class: "btn btn-sm fw-bold btn-primary me-2 mb-2" 
-    = link_to @customers.human_attribute_name(:payment), payments_path, class: "btn btn-sm fw-bold btn-secondary me-2 mb-2"
